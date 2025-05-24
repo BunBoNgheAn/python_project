@@ -17,7 +17,6 @@ def save_data(df):
 def index():
     df = load_data()
 
-    #dqthang start
     sort_by = request.args.get('sort_by')
     sort_order  = request.args.get('sort_order','asc')
     if not df.empty and sort_by and sort_by in df.columns:
@@ -31,10 +30,7 @@ def index():
                            current_sort_order=sort_order
                            )
 
-    # dqthang end
     #return render_template("index.html", data=df.to_dict(orient="records"))
-
-
 
 @app.route("/create", methods=["POST"])
 def create():
